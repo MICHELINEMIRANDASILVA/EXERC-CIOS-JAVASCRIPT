@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números com JS</title>
+    <style>
+        body {
+            font: 12pt Arial;
+        }
+
+        button {
+            font-size: 12pt;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Média do aluno v1.0</h1>
+    <button onclick="media()">Calcular média</button>
+    <section id="situação">
+        <p>O resultado vai aparecer aqui...</p>
+    </section>
+
+    <script>
+
+        function media() {
+            let nome = window.prompt ('Qual é o nome do aluno') // Já que o nome não é um número e sim letras, não é preciso colocar Number() para fazer a conversão
+            let n1 = Number(window.prompt(`Digite a primeira nota de ${nome}?`))
+            let n2 = Number(window.prompt(`Além de ${n1}, digite a segunda nota de ${nome}?`))
+            let n3 = Number(window.prompt(`Digite a terceira nota de ${nome}?`))
+            let n4 = Number(window.prompt(`Digite a quarta nota de ${nome}?`))
+            med = (n1 + n2 + n3 + n4)/4 // Se você não coloar os parênteses para forçar a precedência, seu cálculo vai dar um resultado errado, já que a divisão será feita antes.
+          
+            let res = document.getElementById('situação')
+            res.innerHTML = `<p>Calculando a média final de <mark>${nome}</mark>.</p>`  
+            res.innerHTML += `<p>As notas obtidas foram <mark>${n1}, ${n2}, ${n3} e ${n4}</mark>.</p>`
+
+            arred = med.toFixed(2)
+            res.innerHTML += `<p>A média final será <mark>${arred}</mark>.</p>`
+            
+
+            if (med >= 7){
+                sit = "Aprovado"
+            } else {
+                sit = "Reprovado"
+            }
+
+            res.innerHTML += `<p>O(a) estudante foi <mark>${sit}</mark>.</p>`
+        }
+    </script>
+</body>
+</html>
